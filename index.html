@@ -7,9 +7,7 @@
     <title>M&Y Skin Care | المتجر</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
 
-
     <style>
-
         :root {
             --primary: #1a1a1a;
             --secondary: #555555;
@@ -19,7 +17,6 @@
             --danger: #d9534f;
         }
 
-
         * {
             box-sizing: border-box;
             scroll-behavior: smooth;
@@ -28,14 +25,12 @@
             outline: none;
         }
 
-
         body {
             font-family: 'Tajawal', sans-serif;
             background-color: var(--bg);
             color: var(--primary);
             overflow-x: hidden;
         }
-
 
         nav {
             display: flex;
@@ -51,7 +46,6 @@
             border-bottom: 1px solid #eee;
         }
 
-
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 24px;
@@ -59,7 +53,6 @@
             color: var(--primary);
             text-decoration: none;
         }
-
 
         .nav-links-container {
             display: flex;
@@ -70,7 +63,6 @@
             gap: 20px;
         }
 
-
         .nav-links-container span, .nav-links-container a {
             text-decoration: none;
             color: var(--primary);
@@ -79,7 +71,6 @@
             cursor: pointer;
             transition: 0.3s;
         }
-
 
         .hero {
             display: flex;
@@ -92,12 +83,10 @@
             gap: 60px;
         }
 
-
         .hero-text {
             flex: 1;
             max-width: 500px;
         }
-
 
         .hero-text h1 {
             font-family: 'Playfair Display', serif;
@@ -106,30 +95,25 @@
             line-height: 1.2;
         }
 
-
         .hero-image {
             flex: 1;
             display: flex;
             justify-content: flex-end;
         }
 
-
         .image-container {
             width: 100%;
             max-width: 450px;
             height: 550px;
-            /* تم التعديل هنا لاستخدام اسم الصورة home.jpg */
-            background: url('home.jpg') no-repeat center center;
+           background: url('home.jpg') no-repeat center center;
             background-size: cover;
             border-radius: 200px 200px 0 0;
             box-shadow: 15px 15px 0px #eee;
         }
 
-
         .store-section {
             padding: 60px 8%;
         }
-
 
         .filter-container {
             display: flex;
@@ -139,7 +123,6 @@
             flex-wrap: wrap;
             margin-bottom: 40px;
         }
-
 
         .filter-btn {
             padding: 8px 25px;
@@ -151,20 +134,17 @@
             transition: 0.3s;
         }
 
-
         .filter-btn.active {
             background: var(--accent);
             color: white;
             border-color: var(--accent);
         }
 
-
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 25px;
         }
-
 
         .product-card {
             background: #fff;
@@ -175,7 +155,6 @@
             transition: 0.5s ease;
         }
 
-
         .product-card img {
             width: 100%;
             height: 250px;
@@ -184,20 +163,17 @@
             border-radius: 8px;
         }
 
-
         .product-card h3 {
             font-family: 'Playfair Display', serif;
             font-size: 16px;
             margin-bottom: 6px;
         }
 
-
         .price {
             font-weight: 700;
             display: block;
             margin-bottom: 12px;
         }
-
 
         .prod-details {
             font-size: 11px;
@@ -209,12 +185,10 @@
             transition: 0.4s ease;
         }
 
-
         .product-card:hover .prod-details {
             opacity: 1;
             max-height: 60px;
         }
-
 
         .add-btn {
             background: var(--primary);
@@ -227,13 +201,11 @@
             font-size: 20px;
         }
 
-
         #about {
             padding: 80px 8%;
             background: white;
             text-align: center;
         }
-
 
         .about-title {
             font-family: 'Playfair Display', serif;
@@ -242,7 +214,6 @@
             color: var(--primary);
         }
 
-
         .about-text {
             max-width: 900px;
             margin: 0 auto;
@@ -250,7 +221,6 @@
             line-height: 2;
             color: var(--secondary);
         }
-
 
         .cart-bar {
             position: fixed;
@@ -267,7 +237,6 @@
             cursor: pointer;
         }
 
-
         .modal {
             position: fixed;
             top: 0;
@@ -281,7 +250,6 @@
             z-index: 2000;
         }
 
-
         .modal-content {
             background: #fff;
             width: 95%;
@@ -293,7 +261,6 @@
             overflow-y: auto;
         }
 
-
         .close-modal {
             position: absolute;
             top: 15px;
@@ -302,7 +269,6 @@
             cursor: pointer;
             color: #999;
         }
-
 
         .checkout-form input, .checkout-form select, .checkout-form textarea {
             width: 100%;
@@ -313,7 +279,6 @@
             font-family: 'Tajawal';
         }
 
-
         .phone-container {
             display: flex;
             align-items: center;
@@ -323,14 +288,12 @@
             margin-bottom: 12px;
         }
 
-
         .phone-prefix {
             background: #f5f5f5;
             padding: 12px;
             border-right: 1px solid #ddd;
             font-weight: bold;
         }
-
 
         .primary-btn {
             background: var(--primary);
@@ -343,7 +306,6 @@
             font-weight: bold;
         }
 
-
         .order-card {
             background: #fff;
             border: 1px solid #eee;
@@ -351,7 +313,6 @@
             padding: 15px;
             margin-bottom: 20px;
         }
-
 
         .status-badge {
             display: inline-block;
@@ -362,10 +323,8 @@
             margin-bottom: 10px;
         }
 
-
         .status-red { background: #fff3f3; color: var(--danger); border: 1px solid #ffcccc; }
         .status-green { background: #f1f8e9; color: var(--success); border: 1px solid #c8e6c9; }
-
 
         .items-list-box {
             background: #f9f9f9;
@@ -378,17 +337,13 @@
             border: 1px dashed #ddd;
         }
 
-
         .hidden { display: none !important; }
 
-
         footer { background: var(--primary); color: white; padding: 40px; text-align: center; }
-
     </style>
 </head>
 
 <body>
-
 
     <nav>
         <a href="#" class="logo">M&Y <span>Skin Care</span></a>
@@ -399,7 +354,6 @@
             <a href="#about">رؤيتنا</a>
         </div>
     </nav>
-
 
     <section class="hero">
         <div class="hero-text">
@@ -412,9 +366,7 @@
         </div>
     </section>
 
-
     <section class="store-section" id="store">
-
         <div class="filter-container">
             <div class="filter-btn active" onclick="filterCat('all', this)">الكل</div>
             <div class="filter-btn" onclick="filterCat('face', this)">الوجه</div>
@@ -422,7 +374,6 @@
         </div>
 
         <div class="products-grid">
-
             <div class="product-card" data-cat="face">
                 <img src="gel200.jpg">
                 <h3>Effaclar Gel 200ml</h3>
@@ -478,10 +429,8 @@
                 <span class="price">1,250 ج.م</span>
                 <button class="add-btn" onclick="add('Nail Strengthening Oil', 1250)">+</button>
             </div>
-
         </div>
     </section>
-
 
     <section id="about">
         <h2 class="about-title">رؤيتنا لإشراقتكِ</h2>
@@ -490,12 +439,10 @@
         </div>
     </section>
 
-
     <div class="cart-bar" onclick="showModal('s-cart')">
         <div>السلة (<span id="cnt">0</span>) | <span id="tot">0</span> ج.م</div>
         <button style="background:var(--accent); border:none; padding:8px 15px; color:white; border-radius:4px; font-weight:bold;">عرض الطلب</button>
     </div>
-
 
     <div class="modal" id="mainModal">
         <div class="modal-content">
@@ -510,7 +457,6 @@
                 </div>
                 <button class="primary-btn" style="margin-top:20px;" onclick="goToCheckout()">إتمام البيانات ←</button>
             </div>
-
 
             <div id="s-chk" class="hidden checkout-form">
                 <h2>بيانات التوصيل</h2>
@@ -539,12 +485,10 @@
                 <button class="primary-btn" style="margin-top:20px;" onclick="finishOrder()">تأكيد الطلب</button>
             </div>
 
-
             <div id="s-track" class="hidden">
                 <h2>تتبع طلباتكِ</h2>
                 <div id="orders-container"></div>
             </div>
-
 
             <div id="s-saved" class="hidden">
                 <h2>البطاقات المحفوظة</h2>
@@ -562,29 +506,23 @@
                     <button class="primary-btn" onclick="saveNewCard()">حفظ البطاقة</button>
                 </div>
             </div>
-
         </div>
     </div>
-
 
     <footer>
         <p>جميع الحقوق محفوظة لـ ماركة M&Y Skin Care © 2026</p>
     </footer>
 
-
     <script>
-
         let cart = [], timer;
         const STORAGE_ORDERS = 'my_skincare_orders';
         const STORAGE_CARDS = 'my_skincare_cards';
-
 
         function formatExpiry(input) {
             let v = input.value.replace(/\D/g, '');
             if (v.length >= 2) v = v.substring(0,2) + '/' + v.substring(2,4);
             input.value = v;
         }
-
 
         function add(n, p) {
             let e = cart.find(x => x.n === n);
@@ -593,13 +531,11 @@
             up();
         }
 
-
         function remove(idx) {
             if (cart[idx].q > 1) cart[idx].q -= 1;
             else cart.splice(idx, 1);
             up();
         }
-
 
         function up() {
             let t = 0, h = "", c = 0;
@@ -617,7 +553,6 @@
             document.getElementById('l-cart').innerHTML = h || "السلة فارغة";
         }
 
-
         function filterCat(cat, btn) {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
@@ -626,7 +561,6 @@
             });
         }
 
-
         function showModal(s) {
             document.getElementById('mainModal').style.display = "flex";
             ['s-cart', 's-chk', 's-track', 's-saved'].forEach(id => document.getElementById(id).classList.add('hidden'));
@@ -634,12 +568,10 @@
             if (s === 's-chk') updateCardUI();
         }
 
-
         function goToCheckout() {
             if (cart.length === 0) { alert("السلة فارغة!"); return; }
             showModal('s-chk');
         }
-
 
         function updateCardUI() {
             const area = document.getElementById('card-selection-area');
@@ -655,9 +587,7 @@
             } else area.innerHTML = "";
         }
 
-
         document.getElementsByName('pay').forEach(el => el.onchange = updateCardUI);
-
 
         function finishOrder() {
             const n = document.getElementById('c-name').value.trim();
@@ -700,7 +630,6 @@
             alert("تم إرسال طلبكِ بنجاح!");
             cart = []; up(); closeM();
         }
-
 
         function openTracking() {
             const os = JSON.parse(localStorage.getItem(STORAGE_ORDERS) || "[]");
@@ -755,7 +684,6 @@
             showModal('s-track');
         }
 
-
         function cancelOrder(idx) {
             if (confirm("هل تريدين إلغاء هذا الطلب؟")) {
                 let os = JSON.parse(localStorage.getItem(STORAGE_ORDERS));
@@ -764,7 +692,6 @@
                 openTracking();
             }
         }
-
 
         function saveNewCard() {
             const num = document.getElementById('new-v-num').value;
@@ -802,7 +729,6 @@
             openSavedCards();
         }
 
-
         function openSavedCards() {
             const cards = JSON.parse(localStorage.getItem(STORAGE_CARDS) || "[]");
             let h = "";
@@ -821,7 +747,6 @@
             showModal('s-saved');
         }
 
-
         function delCard(idx) {
             if (confirm("هل تريدين حذف هذه البطاقة؟")) {
                 let cards = JSON.parse(localStorage.getItem(STORAGE_CARDS));
@@ -831,16 +756,12 @@
             }
         }
 
-
         function closeM() { 
             document.getElementById('mainModal').style.display = "none"; 
             clearInterval(timer);
         }
 
-
         window.onclick = (e) => { if (e.target.id === 'mainModal') closeM(); }
-
-
     </script>
 
 </body>
