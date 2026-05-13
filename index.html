@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&Y Skin Care | المتجر</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #555555;
+            --bg: #fdfcf9;
+            --accent: #c5a059;
+            --success: #27ae60;
+            --danger: #d9534f;
+        }
+
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg);
+            color: var(--primary);
+            overflow-x: hidden;
+        }
+
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(253, 252, 249, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #eee;
+        }
+
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+
+        .nav-links-container {
+            display: flex;
+            background: #fff;
+            padding: 10px 25px;
+            border-radius: 50px;
+            border: 1px solid #eee;
+            gap: 20px;
+        }
+
+
+        .nav-links-container span, .nav-links-container a {
+            text-decoration: none;
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 95vh;
+            padding: 120px 8% 50px 8%;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 60px;
+        }
+
+
+        .hero-text {
+            flex: 1;
+            max-width: 500px;
+        }
+
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 58px;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+
+        .image-container {
+            width: 100%;
+            max-width: 450px;
+            height: 550px;
+            /* تم التعديل هنا لاستخدام اسم الصورة home.jpg */
+            background: url('home.jpg') no-repeat center center;
+            background-size: cover;
+            border-radius: 200px 200px 0 0;
+            box-shadow: 15px 15px 0px #eee;
+        }
+
+
+        .store-section {
+            padding: 60px 8%;
+        }
+
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+
+        .filter-btn {
+            padding: 8px 25px;
+            border-radius: 50px;
+            background: #fff;
+            border: 1px solid #eee;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+
+        .filter-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            padding: 15px;
+            text-align: center;
+            border-radius: 12px;
+            transition: 0.5s ease;
+        }
+
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 12px;
+            border-radius: 8px;
+        }
+
+
+        .product-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+
+        .price {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+
+        .prod-details {
+            font-size: 11px;
+            color: var(--secondary);
+            margin-bottom: 12px;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.4s ease;
+        }
+
+
+        .product-card:hover .prod-details {
+            opacity: 1;
+            max-height: 60px;
+        }
+
+
+        .add-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+
+        #about {
+            padding: 80px 8%;
+            background: white;
+            text-align: center;
+        }
+
+
+        .about-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+
+        .about-text {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 2;
+            color: var(--secondary);
+        }
+
+
+        .cart-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #111;
+            color: white;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            cursor: pointer;
+        }
+
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+
+        .modal-content {
+            background: #fff;
+            width: 95%;
+            max-width: 480px;
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+        }
+
+
+        .checkout-form input, .checkout-form select, .checkout-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Tajawal';
+        }
+
+
+        .phone-container {
+            display: flex;
+            align-items: center;
+            direction: ltr;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+
+        .phone-prefix {
+            background: #f5f5f5;
+            padding: 12px;
+            border-right: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+
+        .primary-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+
+        .order-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+
+        .status-red { background: #fff3f3; color: var(--danger); border: 1px solid #ffcccc; }
+        .status-green { background: #f1f8e9; color: var(--success); border: 1px solid #c8e6c9; }
+
+
+        .items-list-box {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            margin-top: 10px;
+            line-height: 1.6;
+            color: var(--secondary);
+            border: 1px dashed #ddd;
+        }
+
+
+        .hidden { display: none !important; }
+
+
+        footer { background: var(--primary); color: white; padding: 40px; text-align: center; }
+
+    </style>
+</head>
+
+<body>
+
+
+    <nav>
+        <a href="#" class="logo">M&Y <span>Skin Care</span></a>
+        <div class="nav-links-container">
+            <a href="#store">المتجر</a>
+            <span onclick="openTracking()">طلباتي</span>
+            <span onclick="openSavedCards()">بطاقاتي</span>
+            <a href="#about">رؤيتنا</a>
+        </div>
+    </nav>
+
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>تألقي بجمالٍ لا يُنسى</h1>
+            <p style="color:var(--secondary); line-height: 1.8; margin-bottom: 25px;">نؤمن بأن الجمال الحقيقي يبدأ من العناية الفائقة والتركيبات الطبيعية المتطورة.</p>
+            <a href="#store" class="primary-btn" style="text-decoration: none; display: inline-block; width: auto; padding: 15px 40px;">تسوقي الآن</a>
+        </div>
+        <div class="hero-image">
+            <div class="image-container"></div>
+        </div>
+    </section>
+
+
+    <section class="store-section" id="store">
+
+        <div class="filter-container">
+            <div class="filter-btn active" onclick="filterCat('all', this)">الكل</div>
+            <div class="filter-btn" onclick="filterCat('face', this)">الوجه</div>
+            <div class="filter-btn" onclick="filterCat('nail', this)">الأظافر</div>
+        </div>
+
+        <div class="products-grid">
+
+            <div class="product-card" data-cat="face">
+                <img src="gel200.jpg">
+                <h3>Effaclar Gel 200ml</h3>
+                <div class="prod-details">غسول منقي للبشرة الدهنية والحساسة.</div>
+                <span class="price">1,400 ج.م</span>
+                <button class="add-btn" onclick="add('Effaclar Gel 200ml', 1400)">+</button>
+            </div>
+
+            <div class="product-card" data-cat="face">
+                <img src="gel400.jpg">
+                <h3>Effaclar Gel 400ml</h3>
+                <div class="prod-details">الحجم الاقتصادي لتنظيف المسام بعمق.</div>
+                <span class="price">2,200 ج.م</span>
+                <button class="add-btn" onclick="add('Effaclar Gel 400ml', 2200)">+</button>
+            </div>
+
+            <div class="product-card" data-cat="face">
+                <img src="serum.jpg">
+                <h3>Radiance Face Serum</h3>
+                <div class="prod-details">سيروم نضارة مركز لتفتيح البشرة.</div>
+                <span class="price">2,600 ج.م</span>
+                <button class="add-btn" onclick="add('Radiance Face Serum', 2600)">+</button>
+            </div>
+
+            <div class="product-card" data-cat="face">
+                <img src="eye.jpg">
+                <h3>Radiance Eye Cream</h3>
+                <div class="prod-details">عناية مكثفة لتقليل الهالات السوداء والانتفاخ.</div>
+                <span class="price">1,900 ج.م</span>
+                <button class="add-btn" onclick="add('Radiance Eye Cream', 1900)">+</button>
+            </div>
+
+            <div class="product-card" data-cat="face">
+                <img src="mask.jpg">
+                <h3>Glow Renewal Mask</h3>
+                <div class="prod-details">ماسك التجديد لإعطاء إشراقة فورية.</div>
+                <span class="price">1,300 ج.م</span>
+                <button class="add-btn" onclick="add('Glow Renewal Mask', 1300)">+</button>
+            </div>
+
+            <div class="product-card" data-cat="face">
+                <img src="mascara.jpg">
+                <h3>Lash Extension Mascara</h3>
+                <div class="prod-details">تركيبة طبيعية لزيادة طول وكثافة الرموش.</div>
+                <span class="price">1,450 ج.م</span>
+                <button class="add-btn" onclick="add('Lash Extension Mascara', 1450)">+</button>
+            </div>
+
+            <div class="product-card" data-cat="nail">
+                <img src="nail.jpg">
+                <h3>Nail Strengthening Oil</h3>
+                <div class="prod-details">زيت مقوي للأظافر الهشة بخلاصة اللوز المر.</div>
+                <span class="price">1,250 ج.م</span>
+                <button class="add-btn" onclick="add('Nail Strengthening Oil', 1250)">+</button>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="about">
+        <h2 class="about-title">رؤيتنا لإشراقتكِ</h2>
+        <div class="about-text">
+            نحن في <strong>M&Y Skin Care</strong> نفخر بكوننا علامة تجارية مصرية رائدة متخصصة في صناعة أرقى منتجات العناية بالبشرة بأعلى المعايير العلمية، ندمج بين قوة الطبيعة وأحدث ما توصل إليه العلم لنقدم لكِ حلولاً مخصصة تعيد لبشرتكِ إشراقتها المعهودة وتمنحكِ الثقة التي تستحقينها يومياً.
+        </div>
+    </section>
+
+
+    <div class="cart-bar" onclick="showModal('s-cart')">
+        <div>السلة (<span id="cnt">0</span>) | <span id="tot">0</span> ج.م</div>
+        <button style="background:var(--accent); border:none; padding:8px 15px; color:white; border-radius:4px; font-weight:bold;">عرض الطلب</button>
+    </div>
+
+
+    <div class="modal" id="mainModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeM()">&times;</span>
+
+            <div id="s-cart">
+                <h2 style="margin-bottom:20px;">سلة التسوق</h2>
+                <div id="l-cart"></div>
+                <div style="margin-top:20px; border-top:1px solid #eee; padding-top:15px; display:flex; justify-content:space-between; font-weight:bold;">
+                    <span>المجموع:</span>
+                    <span id="m-tot">0 ج.م</span>
+                </div>
+                <button class="primary-btn" style="margin-top:20px;" onclick="goToCheckout()">إتمام البيانات ←</button>
+            </div>
+
+
+            <div id="s-chk" class="hidden checkout-form">
+                <h2>بيانات التوصيل</h2>
+                <input type="text" id="c-name" placeholder="الاسم بالكامل (حروف فقط)" oninput="this.value=this.value.replace(/[0-9٠-٩]/g,'')">
+                
+                <div class="phone-container">
+                    <div class="phone-prefix">🇪🇬 +20</div>
+                    <input type="tel" id="c-phone" placeholder="1XXXXXXXXX" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                </div>
+
+                <select id="c-gov">
+                    <option value="">اختاري المحافظة...</option>
+                    <option>المنصورة</option>
+                    <option>دمياط</option>
+                    <option>كفر الشيخ</option>
+                </select>
+                <textarea id="c-addr" placeholder="العنوان بالتفصيل"></textarea>
+                
+                <div id="payment-selection">
+                    <h4 style="margin-bottom:10px;">طريقة الدفع</h4>
+                    <label><input type="radio" name="pay" id="pay-cash" checked> كاش عند الاستلام</label><br>
+                    <label><input type="radio" name="pay" id="pay-saved"> بطاقة محفوظة</label>
+                </div>
+                <div id="card-selection-area" style="margin-top:10px;"></div>
+
+                <button class="primary-btn" style="margin-top:20px;" onclick="finishOrder()">تأكيد الطلب</button>
+            </div>
+
+
+            <div id="s-track" class="hidden">
+                <h2>تتبع طلباتكِ</h2>
+                <div id="orders-container"></div>
+            </div>
+
+
+            <div id="s-saved" class="hidden">
+                <h2>البطاقات المحفوظة</h2>
+                <div id="cards-list"></div>
+                <hr style="margin:20px 0; opacity:0.1;">
+                <div class="checkout-form">
+                    <h4>إضافة بطاقة جديدة</h4>
+                    <input type="text" id="new-v-num" placeholder="رقم الكارت (16 رقم)" maxlength="16" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                    
+                    <div style="display:flex; gap:10px;">
+                        <input type="text" id="new-v-exp" placeholder="الشهر/السنة (MM/YY)" maxlength="5" oninput="formatExpiry(this)">
+                        <input type="text" id="new-v-cvv" placeholder="CVV" maxlength="3" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                    </div>
+                    
+                    <button class="primary-btn" onclick="saveNewCard()">حفظ البطاقة</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <footer>
+        <p>جميع الحقوق محفوظة لـ ماركة M&Y Skin Care © 2026</p>
+    </footer>
+
+
+    <script>
+
+        let cart = [], timer;
+        const STORAGE_ORDERS = 'my_skincare_orders';
+        const STORAGE_CARDS = 'my_skincare_cards';
+
+
+        function formatExpiry(input) {
+            let v = input.value.replace(/\D/g, '');
+            if (v.length >= 2) v = v.substring(0,2) + '/' + v.substring(2,4);
+            input.value = v;
+        }
+
+
+        function add(n, p) {
+            let e = cart.find(x => x.n === n);
+            if (e) e.q += 1;
+            else cart.push({ n, p, q: 1 });
+            up();
+        }
+
+
+        function remove(idx) {
+            if (cart[idx].q > 1) cart[idx].q -= 1;
+            else cart.splice(idx, 1);
+            up();
+        }
+
+
+        function up() {
+            let t = 0, h = "", c = 0;
+            cart.forEach((i, idx) => {
+                t += (i.p * i.q);
+                c += i.q;
+                h += `<div style="display:flex;justify-content:space-between;margin-bottom:12px; border-bottom:1px solid #f9f9f9; padding-bottom:5px;">
+                        <span>${i.n} x${i.q}</span>
+                        <span>${(i.p * i.q).toLocaleString()} ج.م <button onclick="remove(${idx})" style="color:red; border:none; background:none; cursor:pointer; margin-right:10px;">✖</button></span>
+                      </div>`;
+            });
+            document.getElementById('cnt').innerText = c;
+            document.getElementById('tot').innerText = t.toLocaleString();
+            document.getElementById('m-tot').innerText = t.toLocaleString() + " ج.م";
+            document.getElementById('l-cart').innerHTML = h || "السلة فارغة";
+        }
+
+
+        function filterCat(cat, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.product-card').forEach(p => {
+                p.style.display = (cat === 'all' || p.dataset.cat === cat) ? 'block' : 'none';
+            });
+        }
+
+
+        function showModal(s) {
+            document.getElementById('mainModal').style.display = "flex";
+            ['s-cart', 's-chk', 's-track', 's-saved'].forEach(id => document.getElementById(id).classList.add('hidden'));
+            document.getElementById(s).classList.remove('hidden');
+            if (s === 's-chk') updateCardUI();
+        }
+
+
+        function goToCheckout() {
+            if (cart.length === 0) { alert("السلة فارغة!"); return; }
+            showModal('s-chk');
+        }
+
+
+        function updateCardUI() {
+            const area = document.getElementById('card-selection-area');
+            const cards = JSON.parse(localStorage.getItem(STORAGE_CARDS) || "[]");
+            if (document.getElementById('pay-saved').checked) {
+                if (cards.length === 0) area.innerHTML = "<p style='color:red; font-size:12px;'>لا توجد بطاقات محفوظة.</p>";
+                else {
+                    let h = "<select id='selected-card'>";
+                    cards.forEach(c => h += `<option value='${c.num}'>بطاقة تنتهي بـ **** ${c.num.slice(-4)}</option>`);
+                    h += "</select>";
+                    area.innerHTML = h;
+                }
+            } else area.innerHTML = "";
+        }
+
+
+        document.getElementsByName('pay').forEach(el => el.onchange = updateCardUI);
+
+
+        function finishOrder() {
+            const n = document.getElementById('c-name').value.trim();
+            const p = document.getElementById('c-phone').value.trim();
+            const g = document.getElementById('c-gov').value;
+            const a = document.getElementById('c-addr').value.trim();
+
+            if (!/^[a-zA-Z\u0621-\u064A\s]{3,}$/.test(n)) { 
+                alert("يرجى كتابة الاسم بالحروف فقط"); 
+                return; 
+            }
+            
+            if (!/^1[0125][0-9]{8}$/.test(p)) { 
+                alert("رقم الهاتف غير صحيح. يجب أن يبدأ بـ 10 أو 11 أو 12 أو 15 (بعد كود الدولة)"); 
+                return; 
+            }
+            
+            if (!g || a.length < 5) { alert("يرجى إكمال العنوان"); return; }
+
+            let payInfo = document.getElementById('pay-cash').checked ? "كاش" : "بطاقة";
+            if (payInfo === "بطاقة") {
+                const sel = document.getElementById('selected-card');
+                if (!sel) { alert("اختر بطاقة"); return; }
+                payInfo += " (**** " + sel.value.slice(-4) + ")";
+            }
+
+            let os = JSON.parse(localStorage.getItem(STORAGE_ORDERS) || "[]");
+            os.push({
+                name: n, 
+                phone: p,
+                gov: g, 
+                addr: a, 
+                pay: payInfo,
+                total: document.getElementById('m-tot').innerText,
+                time: Date.now(), 
+                items: JSON.parse(JSON.stringify(cart)) 
+            });
+
+            localStorage.setItem(STORAGE_ORDERS, JSON.stringify(os));
+            alert("تم إرسال طلبكِ بنجاح!");
+            cart = []; up(); closeM();
+        }
+
+
+        function openTracking() {
+            const os = JSON.parse(localStorage.getItem(STORAGE_ORDERS) || "[]");
+            const container = document.getElementById('orders-container');
+            clearInterval(timer);
+
+            const render = () => {
+                if (os.length === 0) { container.innerHTML = "لا توجد طلبات سابقة."; return; }
+                let h = "";
+                os.forEach((o, idx) => {
+                    const elapsed = Date.now() - o.time;
+                    const remaining = 3600000 - elapsed;
+                    const isConfirmed = remaining <= 0;
+                    
+                    let itemsHtml = '<div class="items-list-box"><b>محتويات الطلبية:</b><br>';
+                    o.items.forEach(item => {
+                        itemsHtml += `• ${item.n} (الكمية: ${item.q})<br>`;
+                    });
+                    itemsHtml += '</div>';
+
+                    const mins = Math.floor(remaining / 60000);
+                    const secs = Math.floor((remaining % 60000) / 1000);
+
+                    h += `<div class="order-card">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <b>طلب #${idx+1}</b> 
+                            <span class="status-badge ${isConfirmed ? 'status-green' : 'status-red'}">
+                                ${isConfirmed ? '● تم التأكيد' : '● قيد المراجعة'}
+                            </span>
+                        </div>
+                        
+                        <div style="font-size:12px; line-height:1.6; margin-top:10px;">
+                            <b>المبلغ:</b> ${o.total}<br>
+                            <b>الاسم:</b> ${o.name}<br>
+                            <b>الهاتف:</b> <span style="direction: ltr; display: inline-block;">+20 ${o.phone}</span><br>
+                            <b>العنوان:</b> ${o.addr} (${o.gov})
+                        </div>
+                        
+                        ${itemsHtml}
+
+                        ${!isConfirmed ? `
+                            <div style="color:var(--danger); font-size:11px; margin-top:8px;">متاح للإلغاء خلال: ${mins} دقيقة و ${secs} ثانية</div>
+                            <button onclick="cancelOrder(${idx})" style="margin-top:10px; color:var(--danger); border:none; background:none; cursor:pointer; font-weight:bold; font-family:'Tajawal';">إلغاء الطلب</button>
+                        ` : ''}
+                    </div>`;
+                });
+                container.innerHTML = h;
+            };
+
+            render();
+            timer = setInterval(render, 1000);
+            showModal('s-track');
+        }
+
+
+        function cancelOrder(idx) {
+            if (confirm("هل تريدين إلغاء هذا الطلب؟")) {
+                let os = JSON.parse(localStorage.getItem(STORAGE_ORDERS));
+                os.splice(idx, 1);
+                localStorage.setItem(STORAGE_ORDERS, JSON.stringify(os));
+                openTracking();
+            }
+        }
+
+
+        function saveNewCard() {
+            const num = document.getElementById('new-v-num').value;
+            const exp = document.getElementById('new-v-exp').value;
+            const cvv = document.getElementById('new-v-cvv').value;
+
+            if (num.length < 16) { alert("رقم البطاقة غير مكتمل (16 رقم)"); return; }
+            if (exp.length < 5) { alert("يرجى إدخال تاريخ انتهاء كامل (MM/YY)"); return; }
+            
+            const parts = exp.split('/');
+            const month = parseInt(parts[0], 10);
+            const year = parseInt("20" + parts[1], 10);
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const currentMonth = now.getMonth() + 1;
+
+            if (month < 1 || month > 12) { alert("الشهر غير صحيح (01 - 12)"); return; }
+            if (year < currentYear || (year === currentYear && month < currentMonth)) {
+                alert("البطاقة منتهية الصلاحية!");
+                return;
+            }
+
+            if (cvv.length < 3) { alert("رمز CVV غير صحيح"); return; }
+
+            let cards = JSON.parse(localStorage.getItem(STORAGE_CARDS) || "[]");
+            cards.push({ num, exp, cvv });
+            localStorage.setItem(STORAGE_CARDS, JSON.stringify(cards));
+            
+            alert("تم حفظ البطاقة بنجاح");
+            
+            document.getElementById('new-v-num').value = "";
+            document.getElementById('new-v-exp').value = "";
+            document.getElementById('new-v-cvv').value = "";
+            
+            openSavedCards();
+        }
+
+
+        function openSavedCards() {
+            const cards = JSON.parse(localStorage.getItem(STORAGE_CARDS) || "[]");
+            let h = "";
+            cards.forEach((c, idx) => {
+                h += `<div style="background:#f9f9f9; padding:15px; border-radius:8px; margin-bottom:10px; border: 1px solid #eee;">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-weight:bold;">بطاقة **** ${c.num.slice(-4)}</span>
+                        <button onclick="delCard(${idx})" style="color:red; border:none; background:none; cursor:pointer;">حذف</button>
+                    </div>
+                    <div style="font-size:12px; color:var(--secondary); margin-top:5px;">
+                        تاريخ الانتهاء: ${c.exp}
+                    </div>
+                </div>`;
+            });
+            document.getElementById('cards-list').innerHTML = h || "لا توجد بطاقات محفوظة حالياً.";
+            showModal('s-saved');
+        }
+
+
+        function delCard(idx) {
+            if (confirm("هل تريدين حذف هذه البطاقة؟")) {
+                let cards = JSON.parse(localStorage.getItem(STORAGE_CARDS));
+                cards.splice(idx, 1);
+                localStorage.setItem(STORAGE_CARDS, JSON.stringify(cards));
+                openSavedCards();
+            }
+        }
+
+
+        function closeM() { 
+            document.getElementById('mainModal').style.display = "none"; 
+            clearInterval(timer);
+        }
+
+
+        window.onclick = (e) => { if (e.target.id === 'mainModal') closeM(); }
+
+
+    </script>
+
+</body>
+</html>
